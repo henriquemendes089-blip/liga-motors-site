@@ -1020,6 +1020,12 @@ body::before {
   transition: color 0.2s;
 }
 .footer-col a:hover { color: var(--orange); }
+.footer-insta {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 6px;
+}
+.footer-insta svg { flex-shrink: 0; }
 .footer-bottom {
   border-top: 1px solid var(--line);
   padding-top: 24px;
