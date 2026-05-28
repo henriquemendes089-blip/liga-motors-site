@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Catálogo · Liga Motors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css?v=21">
+</head>
+<body>
+
+<div class="tape">
+  <div class="tape-track">
+    <span>Frete grátis para Minas Gerais</span>
+    <span>Test ride sem compromisso</span>
+    <span>Garantia de fábrica</span>
+    <span>Financiamento em até 24x</span>
+    <span>Frete grátis para Minas Gerais</span>
+    <span>Test ride sem compromisso</span>
+    <span>Garantia de fábrica</span>
+    <span>Financiamento em até 24x</span>
+  </div>
+</div>
+
+<header class="header">
+  <div class="nav">
+    <a href="index.html" class="brand" aria-label="Liga Motors">
+      <img src="assets/nova-logo.png" alt="Liga Motors">
+    </a>
+    <nav class="nav-links" data-nav-links>
+      <a href="index.html">Início</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="index.html#por-que">Por que elétrica</a>
+      <a href="index.html#visitar">Visitar</a>
+    </nav>
+    <a href="#" data-wa-general target="_blank" class="nav-cta">Chamar no WhatsApp</a>
+    <button class="menu-toggle" data-menu aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="catalog-hero">
+  <div class="container">
+
+    <h1 class="reveal" data-delay="1">Toda a nossa<br><i>liga</i> em um só lugar.</h1>
+    <div class="lead">
+      <p class="reveal" data-delay="2">Filtre por marca, categoria, preço e autonomia. Encontre a scooter que combina com a sua rotina — e leve a conversa direto pro WhatsApp.</p>
+      <div class="reveal" data-delay="3" style="text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mute);">
+        <span data-count>Carregando…</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<button class="mobile-filter-toggle" data-mobile-filter>⚙ Abrir filtros</button>
+
+<div class="catalog-layout">
+  <aside class="filters" data-filters></aside>
+  <main class="catalog-results">
+    <div class="catalog-bar">
+      <div class="catalog-count" data-count>Carregando…</div>
+      <div class="catalog-sort">
+        Ordenar:
+        <select data-sort>
+          <option value="destaque">Em destaque</option>
+          <option value="preco-asc">Menor preço</option>
+          <option value="preco-desc">Maior preço</option>
+          <option value="km-desc">Maior autonomia</option>
+          <option value="vel-desc">Maior velocidade</option>
+        </select>
+      </div>
+    </div>
+    <div class="bikes-grid" data-bikes-grid></div>
+  </main>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><img src="assets/nova-logo.png" alt="Liga Motors" class="footer-logo">
+          <small>Concessionária de scooters e motos 100% elétricas. Movendo Minas Gerais — sem ruído, sem fumaça, com estilo.</small>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="index.html#por-que">Por que elétrica</a>
+        <a href="index.html#visitar">Visite a loja</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#" data-wa-general target="_blank">WhatsApp</a>
+        <a href="https://www.instagram.com/ligamotors_/" target="_blank">Instagram</a>
+        <a href="https://maps.app.goo.gl/ASoEA7MaQ3Tddig78" target="_blank">Google Maps</a>
+        <p>+55 37 9 9817-0795</p>
+      </div>
+      <div class="footer-col">
+        <h4>Marcas</h4>
+        <p>Voltz · Shineray</p>
+        <p>Super Soco · Lev</p>
+        <p>Watts · Origem</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Liga Motors. Todos os direitos reservados.</span>
+      <span>Site by Brota Web</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#" data-wa-general target="_blank" class="float-wa" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 0C7.16 0 0 7.16 0 16c0 2.82.74 5.58 2.14 8L0 32l8.18-2.14C10.58 31.26 13.27 32 16 32c8.84 0 16-7.16 16-16S24.84 0 16 0zm0 29.34c-2.55 0-5.05-.68-7.24-1.97l-.52-.31-5.39 1.41 1.44-5.25-.34-.54C2.64 20.49 1.92 18.27 1.92 16 1.92 8.22 8.22 1.92 16 1.92S30.08 8.22 30.08 16 23.78 29.34 16 29.34zm7.74-10.55c-.42-.21-2.5-1.23-2.89-1.37-.39-.14-.67-.21-.96.21-.28.42-1.1 1.37-1.34 1.65-.25.28-.49.31-.91.1-.42-.21-1.78-.66-3.39-2.09-1.25-1.12-2.1-2.5-2.34-2.92-.25-.42-.03-.65.18-.86.19-.19.42-.49.63-.74.21-.25.28-.42.42-.7.14-.28.07-.53-.04-.74-.1-.21-.96-2.32-1.31-3.17-.34-.83-.7-.72-.96-.73h-.81c-.28 0-.74.1-1.13.53-.39.42-1.48 1.44-1.48 3.52 0 2.08 1.52 4.09 1.73 4.37.21.28 2.99 4.55 7.24 6.39 1.01.44 1.8.7 2.41.9.96.31 1.84.27 2.53.16.77-.12 2.5-1.02 2.85-2 .35-.99.35-1.83.25-2-.1-.18-.39-.28-.81-.49z"/></svg>
+</a>
+
+<script src="assets/data.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>
