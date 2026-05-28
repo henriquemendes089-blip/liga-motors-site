@@ -680,78 +680,43 @@ body::before {
   transition: all 0.2s;
 }
 
-/* ===== Marca strip ===== */
+/* ===== Marca strip — marquee automático ===== */
 .brands-strip {
-  padding: 40px 0;
+  padding: 36px 0;
+  overflow: hidden;
   background:
     linear-gradient(to bottom,
       var(--ink) 0%,
       var(--orange) 50%,
       var(--ink) 100%);
 }
-.brand-pill { font-size: 22px; }
-.brands-row {
+.brands-track {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  gap: 40px;
-  flex-wrap: wrap;
+  gap: 64px;
+  width: max-content;
+  animation: brands-scroll 22s linear infinite;
+  cursor: grab;
+  user-select: none;
+}
+.brands-track:hover,
+.brands-track.is-dragging {
+  animation-play-state: paused;
+}
+@keyframes brands-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 .brand-pill {
   font-family: var(--display);
   font-size: 28px;
   letter-spacing: 0.08em;
   color: var(--black);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: color 0.2s;
-  cursor: default;
 }
 .brand-pill:hover { color: var(--white); }
-.brands-drag-hint {
-  display: none;
-}
-
-@media (max-width: 540px) {
-  .brands-drag-hint {
-    display: block;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 9px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: rgba(0,0,0,0.35);
-    margin-top: 10px;
-    animation: nudge 2s ease-in-out infinite;
-  }
-  @keyframes nudge {
-    0%,100% { transform: translateX(0); opacity: 0.5; }
-    50%      { transform: translateX(4px); opacity: 1; }
-  }
-  .brands-strip {
-    padding: 28px 0;
-    overflow: hidden;
-  }
-  .brands-strip .container {
-    padding: 0;
-    max-width: 100%;
-  }
-  .brands-row {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    gap: 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 0 20px;
-    gap: 28px;
-  }
-  .brands-row::-webkit-scrollbar { display: none; }
-  .brand-pill {
-    flex-shrink: 0;
-    font-size: 22px;
-    white-space: nowrap;
-  }
-}
 
 /* ===== Why / Diff section ===== */
 .diff-grid {

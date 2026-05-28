@@ -456,6 +456,70 @@ function initCountUp() {
   stats.forEach(el => io.observe(el));
 }
 
+// ==========================
+// BRANDS — drag to scroll
+// ==========================
+function initBrandsMarquee() {
+  const track = document.querySelector('.brands-track');
+  if (!track) return;
+
+  let isDragging = false;
+  let startX = 0;
+  let currentTranslate = 0;
+  let animOffset = 0;
+
+  // Pausa animação CSS e captura posição atual
+  function pauseAnim() {
+    const style = getComputedStyle(track);
+    const matrix = new DOMMatrix(style.transform);
+    animOffset = matrix.m41;
+    track.style.animation = 'none';
+    track.style.transform = `translateX(${animOffset}px)`;
+    track.classList.add('is-dragging');
+  }
+
+  // Retoma animação CSS a partir do offset atual
+  function resumeAnim() {
+    const half = track.scrollWidth / 2;
+    let norm = ((animOffset % -half) - half) % -half;
+    if (norm > 0) norm -= half;
+    const pct = Math.abs(norm / half) * 100;
+    track.style.transform = '';
+    track.style.animation = `brands-scroll 22s linear infinite`;
+    track.style.animationDelay = `-${(pct / 100) * 22}s`;
+    track.classList.remove('is-dragging');
+  }
+
+  // Mouse
+  track.addEventListener('mousedown', e => {
+    isDragging = true; startX = e.clientX;
+    pauseAnim();
+  });
+  window.addEventListener('mousemove', e => {
+    if (!isDragging) return;
+    animOffset += e.clientX - startX;
+    startX = e.clientX;
+    track.style.transform = `translateX(${animOffset}px)`;
+  });
+  window.addEventListener('mouseup', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    resumeAnim();
+  });
+
+  // Touch
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    pauseAnim();
+  }, { passive: true });
+  track.addEventListener('touchmove', e => {
+    animOffset += e.touches[0].clientX - startX;
+    startX = e.touches[0].clientX;
+    track.style.transform = `translateX(${animOffset}px)`;
+  }, { passive: true });
+  track.addEventListener('touchend', () => resumeAnim());
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initMenu();
   initWhatsAppFloat();
@@ -464,4 +528,5 @@ document.addEventListener('DOMContentLoaded', () => {
   renderProduct();
   observeReveals();
   initCountUp();
+  initBrandsMarquee();
 });
