@@ -706,8 +706,26 @@ body::before {
   cursor: default;
 }
 .brand-pill:hover { color: var(--white); }
+.brands-drag-hint {
+  display: none;
+}
 
 @media (max-width: 540px) {
+  .brands-drag-hint {
+    display: block;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.35);
+    margin-top: 10px;
+    animation: nudge 2s ease-in-out infinite;
+  }
+  @keyframes nudge {
+    0%,100% { transform: translateX(0); opacity: 0.5; }
+    50%      { transform: translateX(4px); opacity: 1; }
+  }
   .brands-strip {
     padding: 28px 0;
     overflow: hidden;
