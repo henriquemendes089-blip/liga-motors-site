@@ -372,7 +372,19 @@ function specRow(k, v) {
 // SHARED
 // ==========================
 function observeReveals() {
-  const els = document.querySelectorAll('.reveal:not(.in)');
+  // Mobile: converte bike-cards para slide esquerda/direita alternado
+  if (window.innerWidth <= 540) {
+    const cards = document.querySelectorAll('.bike-card:not(.mob-ready)');
+    cards.forEach((card, i) => {
+      card.classList.add('mob-ready');
+      card.classList.remove('reveal', 'in');
+      card.classList.add(i % 2 === 0 ? 'mob-slide-left' : 'mob-slide-right');
+    });
+  }
+
+  const els = document.querySelectorAll(
+    '.reveal:not(.in), .mob-slide-left:not(.in), .mob-slide-right:not(.in)'
+  );
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {

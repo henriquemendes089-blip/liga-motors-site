@@ -1789,6 +1789,25 @@ body::before {
 .reveal[data-delay="3"] { transition-delay: 0.3s; }
 .reveal[data-delay="4"] { transition-delay: 0.4s; }
 
+/* Mobile card slide-in (esquerda / direita alternado) */
+@media (max-width: 540px) {
+  .mob-slide-left {
+    opacity: 0;
+    transform: translateX(-72px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .mob-slide-right {
+    opacity: 0;
+    transform: translateX(72px);
+    transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .mob-slide-left.in,
+  .mob-slide-right.in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* ===== Home — Centralização Mobile ===== */
 @media (max-width: 540px) {
   /* Hero */
