@@ -15,7 +15,7 @@ function bikeCardHTML(b) {
   return `
     <a href="modelo.html?id=${b.id}" class="bike-card reveal">
       <div class="bike-image">
-        <div class="bg" style="background:${b.imagem}"></div>
+        <div class="bg" style="background:${b.fotos && b.fotos[0] ? `url('${b.fotos[0]}') center/cover no-repeat` : b.imagem}"></div>
         <div class="bike-tags">
           <span class="tag">${b.categoria}</span>
           ${tagNew || tagFeatured || '<span></span>'}
@@ -252,9 +252,19 @@ function renderProduct() {
           ${bike.nome}
         </div>
         <div class="product-grid">
-          <div class="product-image reveal">
-            <div class="bg" style="background:${bike.imagem}"></div>
-            <div class="silhouette">${slugSilhouette(bike.nome)}</div>
+          <div class="product-image-wrap reveal">
+            <div class="product-image">
+              <div class="bg" id="main-photo" style="background:${bike.fotos && bike.fotos[0] ? `url('${bike.fotos[0]}') center/cover no-repeat` : bike.imagem}"></div>
+            </div>
+            ${bike.fotos && bike.fotos.length > 1 ? `
+            <div class="photo-thumbs">
+              ${bike.fotos.map((f, i) => `
+                <div class="photo-thumb ${i === 0 ? 'active' : ''}" onclick="switchPhoto('${f}', this)">
+                  <img src="${f}" alt="${bike.nome} foto ${i+1}" loading="lazy">
+                </div>
+              `).join('')}
+            </div>
+            ` : ''}
           </div>
           <div>
             <div class="product-cat reveal">${bike.marca} · ${bike.categoria}</div>
@@ -362,6 +372,13 @@ function renderProduct() {
   document.querySelector('[data-related]').innerHTML = related.map(bikeCardHTML).join('');
 
   observeReveals();
+}
+
+function switchPhoto(url, thumbEl) {
+  const main = document.getElementById('main-photo');
+  if (main) main.style.background = `url('${url}') center/cover no-repeat`;
+  document.querySelectorAll('.photo-thumb').forEach(t => t.classList.remove('active'));
+  if (thumbEl) thumbEl.classList.add('active');
 }
 
 function specRow(k, v) {

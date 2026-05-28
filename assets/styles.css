@@ -539,7 +539,10 @@ body::before {
 .bike-image .bg {
   position: absolute;
   inset: 0;
-  opacity: 0.85;
+  opacity: 0.92;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .bike-image::after {
   content: "";
@@ -1459,7 +1462,10 @@ body::before {
 .product-image .bg {
   position: absolute;
   inset: 0;
-  opacity: 0.9;
+  opacity: 0.95;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .product-image::after {
   content: "";
@@ -1788,6 +1794,37 @@ body::before {
 .reveal[data-delay="2"] { transition-delay: 0.2s; }
 .reveal[data-delay="3"] { transition-delay: 0.3s; }
 .reveal[data-delay="4"] { transition-delay: 0.4s; }
+
+/* ===== Galeria de fotos do produto ===== */
+.product-image-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.photo-thumbs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.photo-thumb {
+  width: 80px;
+  height: 60px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  cursor: pointer;
+  transition: border-color 0.2s;
+  flex-shrink: 0;
+}
+.photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s;
+}
+.photo-thumb:hover { border-color: var(--mute); }
+.photo-thumb:hover img { transform: scale(1.08); }
+.photo-thumb.active { border-color: var(--orange); }
 
 /* Mobile card slide-in (esquerda / direita alternado) */
 @media (max-width: 540px) {
