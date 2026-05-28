@@ -1626,30 +1626,32 @@ body::before {
 
   /* Ficha técnica */
   .specs-grid {
-    grid-template-columns: 1fr;
-    max-width: 400px;
-    margin: 0 auto;
+    grid-template-columns: 1fr !important;
+    border-top: 1px solid var(--line);
   }
-  .specs-grid > div {
-    padding-right: 0;
-    padding-left: 0 !important;
-    border-left: none !important;
+  .specs-grid > div,
+  .specs-grid > div:nth-child(odd),
+  .specs-grid > div:nth-child(even) {
+    padding: 0 !important;
+    border: none !important;
   }
   .spec-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start;
     justify-content: space-between;
-    gap: 12px;
-    padding: 14px 0;
-    grid-template-columns: none;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+    grid-template-columns: none !important;
   }
   .spec-row .k {
     font-size: 10px;
     letter-spacing: 0.16em;
     color: var(--orange);
-    flex: 0 0 110px;
-    line-height: 1.4;
+    flex: 0 0 130px;
+    line-height: 1.5;
+    padding-top: 2px;
   }
   .spec-row .v {
     font-size: 14px;
@@ -1657,6 +1659,7 @@ body::before {
     color: var(--white);
     text-align: right;
     flex: 1;
+    line-height: 1.5;
   }
 
   /* CTA da moto */
