@@ -1868,13 +1868,16 @@ body::before {
     padding: 40px 20px;
   }
   .visit-row {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 8px;
+    justify-content: flex-start;
+    gap: 12px;
     text-align: left;
+    padding: 16px 0;
   }
   .visit-row span:first-child {
-    width: auto;
-    min-width: 80px;
+    width: 90px;
+    flex-shrink: 0;
+  }
+  .visit-row span:last-child {
+    flex: 1;
   }
 }
