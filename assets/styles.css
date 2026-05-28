@@ -1625,24 +1625,38 @@ body::before {
   .feat-cell h3 { font-size: 20px; }
 
   /* Ficha técnica */
-  .specs-grid { grid-template-columns: 1fr; }
-  .specs-grid > div { padding-right: 0; padding-left: 0 !important; border-left: none !important; }
+  .specs-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .specs-grid > div {
+    padding-right: 0;
+    padding-left: 0 !important;
+    border-left: none !important;
+  }
   .spec-row {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
     padding: 14px 0;
     grid-template-columns: none;
   }
   .spec-row .k {
     font-size: 10px;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.16em;
     color: var(--orange);
+    flex: 0 0 110px;
+    line-height: 1.4;
   }
   .spec-row .v {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
     color: var(--white);
+    text-align: right;
+    flex: 1;
   }
 
   /* CTA da moto */
