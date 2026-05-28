@@ -1038,7 +1038,47 @@ body::before {
   .footer-logo { width: 140px; height: auto; }
 }
 @media (max-width: 540px) {
-  .footer-grid { grid-template-columns: 1fr; }
+  .footer {
+    padding: 40px 0 24px;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+    text-align: center;
+  }
+  /* Logo ocupa linha inteira */
+  .footer-grid > div:first-child {
+    grid-column: 1 / -1;
+  }
+  .footer-brand {
+    align-items: center;
+  }
+  .footer-logo {
+    width: 120px;
+    margin: 0 auto 4px;
+  }
+  .footer-brand small {
+    font-size: 10px;
+    max-width: 260px;
+    text-align: center;
+  }
+  .footer-col h4 {
+    margin-bottom: 12px;
+  }
+  .footer-col a,
+  .footer-col p {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+    font-size: 11px;
+    padding-top: 20px;
+    margin-top: 28px;
+  }
 }
 
 /* ===== Floating WhatsApp ===== */
