@@ -1627,9 +1627,23 @@ body::before {
   /* Ficha técnica */
   .specs-grid { grid-template-columns: 1fr; }
   .specs-grid > div { padding-right: 0; padding-left: 0 !important; border-left: none !important; }
-  .spec-row { padding: 14px 0; }
-  .spec-row .sk { font-size: 10px; }
-  .spec-row .sv { font-size: 14px; text-align: right; }
+  .spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 0;
+    grid-template-columns: none;
+  }
+  .spec-row .k {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--orange);
+  }
+  .spec-row .v {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+  }
 
   /* CTA da moto */
   .model-cta-inner { padding: 60px 20px; }
